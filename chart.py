@@ -10,6 +10,8 @@ ranking = soup.select(".ranking > strong")
 title = soup.select(".title > a")
 artist = soup.select(".artist >a:nth-child(1)")
 
+#test
+
 rankingList = []
 titleList = []
 artistList = []
