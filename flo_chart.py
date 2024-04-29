@@ -19,12 +19,12 @@ from collections import OrderedDict
 
 # 현재 날짜 가져오기
 current_date = datetime.now().strftime("%Y-%m-%d")
-filename = f"chart_flo100_{current_date}.json"
+# filename = f"chart_flo100_{current_date}.json"
+filename = "floMusicChart100.json"
 
 # Chrome 옵션 설정
 options = ChromeOptions()
-# 헤드리스 ( github 서버에서 작동하기 위한 설정)
-options.add_argument("--headless") 
+options.add_argument("--headless")
 # service = ChromeService(executable_path=ChromeDriverManager().install())
 browser = webdriver.Chrome(options=options)
 
