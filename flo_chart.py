@@ -1,5 +1,4 @@
 import time
-import selenium 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -24,8 +23,10 @@ filename = f"chart_flo100_{current_date}.json"
 
 # Chrome 옵션 설정
 options = ChromeOptions()
-service = ChromeService(executable_path=ChromeDriverManager().install())
-browser = webdriver.Chrome(service=service, options=options)
+# 헤드리스 ( github 서버에서 작동하기 위한 설정)
+options.add_argument("--headless") 
+# service = ChromeService(executable_path=ChromeDriverManager().install())
+browser = webdriver.Chrome(options=options)
 
 browser.get('https://www.music-flo.com/browse')
 
@@ -58,7 +59,7 @@ for track in tracks:
     title = track.select_one(".tit__text").text.strip()
     artist = track.select_one(".artist__link").text.strip()
     album = track.select_one(".album").text.strip()
-    image_url = track.select_one(".thumb img").get('src')
+    image_url = track.select_one(".thumb img").get('data-src')
 
     music_data.append({
         "rank": rank,
@@ -67,6 +68,7 @@ for track in tracks:
         "imageURL": image_url,
         "album": album
     })
+
 
 # 데이터를 JSON 파일로 저장
 with open(filename, 'w', encoding='utf-8') as f:
