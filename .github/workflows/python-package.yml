@@ -35,12 +35,15 @@ jobs:
     - name: run my file
       run: |
         python chart.py
+        python flo_chart.py
+        
         
     - name: commits
       run : |
         git config --global user.email "dlwogur0712@gmail.com"
         git config --global user.name "jaehyuk-lee-0712"
         git add bugsMusicChart100.json
+        git add floMusicChart100.json
         git commit -m "벅스 뮤직 차트 수집"
 
     - name: push
