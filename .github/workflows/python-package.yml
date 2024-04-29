@@ -38,6 +38,12 @@ jobs:
       run: |
         python chart.py
         python flo_chart.py
+
+    - name: Create directory for JSON files
+      run: mkdir json_data
+      
+    - name: Move JSON files to new directory
+      run: mv floMusicChart100.json json_data/
         
         
     - name: commits
