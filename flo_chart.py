@@ -19,8 +19,8 @@ from collections import OrderedDict
 
 # 현재 날짜 가져오기
 current_date = datetime.now().strftime("%Y-%m-%d")
-# filename = f"chart_flo100_{current_date}.json"
-filename = "floMusicChart100.json"
+filename = f"chart_flo100_{current_date}.json"
+#filename = "floMusicChart100.json"
 
 # Chrome 옵션 설정
 options = ChromeOptions()
